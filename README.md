@@ -7,7 +7,12 @@ You can import the compiled library as single file only, or use bower package ma
 Official Javascript OpenTimestamps library:
 [`https://github.com/opentimestamps/javascript-opentimestamps`]
 
-## Import
+## Import in Html
+Import the library in your html code.
+<script src="/angular-opentimestamps.js"></script>
+
+
+## Import in Bower
 Import the library in your project.
 ```
 bower install angular-opentimestamps
@@ -21,7 +26,7 @@ Include the script file in your html.
 
 
 
-## Build Bower Package
+## Build Library
 Resolve and install dependencies.
 ```
 npm install --dev
