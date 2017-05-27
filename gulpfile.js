@@ -47,7 +47,7 @@ gulp.task('index', function() {
         stdout: true // default = true, false means don't write stdout
     };
     return gulp.src('./')
-        .pipe(exec('browserify -r javascript-opentimestamps index.js -o angular-opentimestamps.es6.js', options))
+        .pipe(exec('./node_modules/browserify/bin/cmd.js  -r javascript-opentimestamps index.js -o angular-opentimestamps.es6.js', options))
         .pipe(exec('./node_modules/babel-cli/bin/babel.js angular-opentimestamps.es6.js -o angular-opentimestamps.js', options))
         .pipe(exec.reporter(reportOptions));
 
