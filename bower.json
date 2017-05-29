@@ -1,8 +1,9 @@
 {
-  "name": "javascript-opentimestamps",
+  "name": "bower-opentimestamps",
   "version": "1.0.0",
+  "description": "Javascript OpenTimestamps library for web.",
   "license": "LGPL",
-  "main": "./angular.js",
+  "main": "./index.js",
   "ignore": [],
   "dependencies": {
   }

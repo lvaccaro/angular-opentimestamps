@@ -20,13 +20,13 @@ const source = require('vinyl-source-stream');
 const runSequence = require('run-sequence');
 
 gulp.task('clean', function () {
-    return gulp.src('javascript-opentimestamps.*', {read: false})
+    return gulp.src('bower-opentimestamps.*', {read: false})
         .pipe(clean({force: true}))
 });
 
 /*
 gulp.task('compress', function() {
-  gulp.src('angular-opentimestamps.js')
+  gulp.src('bower-opentimestamps.js')
       .pipe(babili({
           mangle: {
               keepClassNames: true
@@ -47,16 +47,16 @@ gulp.task('index', function() {
         stdout: true // default = true, false means don't write stdout
     };
     return gulp.src('./')
-        .pipe(exec('./node_modules/browserify/bin/cmd.js  -r javascript-opentimestamps index.js -o javascript-opentimestamps.es6.js', options))
-        .pipe(exec('./node_modules/babel-cli/bin/babel.js javascript-opentimestamps.es6.js -o javascript-opentimestamps.js', options))
+        .pipe(exec('./node_modules/browserify/bin/cmd.js  -r javascript-opentimestamps index.js -o bower-opentimestamps.es6.js', options))
+        .pipe(exec('./node_modules/babel-cli/bin/babel.js bower-opentimestamps.es6.js -o bower-opentimestamps.js', options))
         .pipe(exec.reporter(reportOptions));
 
     /*NOTE: babelify run babel with .babelrc file, but doesn't convert the code
     gulp.task('index', function() {
-        return browserify({ debug: true, entries: [" angular-opentimestamps.es6.js"] })
+        return browserify({ debug: true, entries: [" bower-opentimestamps.es6.js"] })
             .transform(babelify)
             .bundle()
-            .pipe(source(' angular-opentimestamps.js'))
+            .pipe(source(' bower-opentimestamps.js'))
             .pipe(gulp.dest('./'));
     });*/
 });
