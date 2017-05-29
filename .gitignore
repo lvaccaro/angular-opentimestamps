@@ -2,3 +2,5 @@
 .idea
 node_modules
 angular-opentimestamps*
+javascript-opentimestamps*
+npm-debug.log

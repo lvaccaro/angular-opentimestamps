@@ -1,6 +1,6 @@
-# angular-opentimestamps
+# bower-opentimestamps
 
-Angular OpenTimestamps library.
+Javascript OpenTimestamps library for web.
 This repository could be used to build easily the javascript-library on client-side with ES5 compatibility.
 You can import the compiled library as single file only, or use bower package manager.
 
@@ -9,17 +9,17 @@ Official Javascript OpenTimestamps library:
 
 ## Import in Html
 Import the library in your html code.
-<script src="/angular-opentimestamps.js"></script>
+<script src="/javascript-opentimestamps.js"></script>
 
 
 ## Import in Bower
 Import the library in your project.
 ```
-bower install angular-opentimestamps
+bower install javascript-opentimestamps
 ```
 Include the script file in your html.
 ```
-<script src="./bower_components/angular-opentimestamps/angular-opentimestamps.js"></script>
+<script src="./bower_components/javascript-opentimestamps/javascript-opentimestamps.js"></script>
 ```
 
 ## Usage

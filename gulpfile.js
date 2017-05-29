@@ -20,7 +20,7 @@ const source = require('vinyl-source-stream');
 const runSequence = require('run-sequence');
 
 gulp.task('clean', function () {
-    return gulp.src('angular-opentimestamps.*', {read: false})
+    return gulp.src('javascript-opentimestamps.*', {read: false})
         .pipe(clean({force: true}))
 });
 
@@ -47,8 +47,8 @@ gulp.task('index', function() {
         stdout: true // default = true, false means don't write stdout
     };
     return gulp.src('./')
-        .pipe(exec('./node_modules/browserify/bin/cmd.js  -r javascript-opentimestamps index.js -o angular-opentimestamps.es6.js', options))
-        .pipe(exec('./node_modules/babel-cli/bin/babel.js angular-opentimestamps.es6.js -o angular-opentimestamps.js', options))
+        .pipe(exec('./node_modules/browserify/bin/cmd.js  -r javascript-opentimestamps index.js -o javascript-opentimestamps.es6.js', options))
+        .pipe(exec('./node_modules/babel-cli/bin/babel.js javascript-opentimestamps.es6.js -o javascript-opentimestamps.js', options))
         .pipe(exec.reporter(reportOptions));
 
     /*NOTE: babelify run babel with .babelrc file, but doesn't convert the code

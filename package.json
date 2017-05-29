@@ -1,5 +1,5 @@
 {
-  "name": "bower-opentimestamps",
+  "name": "javascript-opentimestamps",
   "version": "1.0.0",
   "description": "OpenTimestamps Javascript library for bower.",
   "main": "gulpfile.js",
