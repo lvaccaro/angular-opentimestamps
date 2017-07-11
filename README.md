@@ -1,6 +1,6 @@
 # bower-opentimestamps
 
-Javascript OpenTimestamps library for web frontend.
+Javascript OpenTimestamps library for browser.
 This repository could be used to build easily the javascript-library on client-side with ES5 compatibility.
 You can import the compiled library as single file only, or use bower package manager.
 
