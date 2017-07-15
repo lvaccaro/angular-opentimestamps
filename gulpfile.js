@@ -11,22 +11,25 @@ const clean = require('gulp-clean');
 const exec = require('gulp-exec');
 const source = require('vinyl-source-stream');
 const runSequence = require('run-sequence');
+const uglify = require('gulp-uglify');
+const rename = require('gulp-rename');
+const pump = require('pump');
 
 gulp.task('clean', function () {
-    return gulp.src('bower-opentimestamps.*', {read: false})
+    return gulp.src('./dist/*', {read: false})
         .pipe(clean({force: true}))
 });
 
-/*
-gulp.task('compress', function() {
-  gulp.src('bower-opentimestamps.js')
-      .pipe(babili({
-          mangle: {
-              keepClassNames: true
-          }
-      }))
-    .pipe(gulp.dest('assets/javascripts'))
-});*/
+gulp.task('compress', function (cb) {
+    pump([
+            gulp.src('./dist/bower-opentimestamps.js'),
+            uglify(),
+            rename('bower-opentimestamps.min.js'),
+            gulp.dest('./dist/')
+        ],
+        cb
+    );
+});
 
 gulp.task('index', function() {
     var options = {
@@ -40,8 +43,8 @@ gulp.task('index', function() {
         stdout: true // default = true, false means don't write stdout
     };
     return gulp.src('./')
-        .pipe(exec('./node_modules/browserify/bin/cmd.js  -r javascript-opentimestamps index.js -o bower-opentimestamps.es6.js', options))
-        .pipe(exec('./node_modules/babel-cli/bin/babel.js bower-opentimestamps.es6.js -o bower-opentimestamps.js', options))
+        .pipe(exec('./node_modules/browserify/bin/cmd.js  -r javascript-opentimestamps index.js -o ./dist/bower-opentimestamps.es6.js', options))
+        .pipe(exec('./node_modules/babel-cli/bin/babel.js ./dist/bower-opentimestamps.es6.js -o ./dist/bower-opentimestamps.js', options))
         .pipe(exec.reporter(reportOptions));
 
     /*NOTE: babelify run babel with .babelrc file, but doesn't convert the code
@@ -56,7 +59,7 @@ gulp.task('index', function() {
 
 
 gulp.task('default', function(done) {
-    runSequence('clean', 'index', function(){
+    runSequence('clean', 'index','compress', function(){
         done();
     });
 });
